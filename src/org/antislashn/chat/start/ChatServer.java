@@ -11,9 +11,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ChatServer {
+
+	/***** ATTRIBUTES *****/
+	
 	private int port = 45123;
 	private ServerSocket serverSocket;
 	private List<Socket> clientsConnectes = new ArrayList<Socket>();
+	
+	
+	/***** CONSTRUCTORS *****/
 
 	public ChatServer() {
 	}
@@ -22,6 +28,9 @@ public class ChatServer {
 		this();
 		this.port = port;
 	}
+	
+	
+	/***** METHODS *****/
 
 	public void start() {
 		Socket clientSocket = null;
@@ -54,7 +63,6 @@ public class ChatServer {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
 
 		@Override
@@ -76,6 +84,9 @@ public class ChatServer {
 			}
 		}
 	}
+	
+	
+	/***** MAIN *****/
 	
 	public static void main(String[] args) {
 		ChatServer serverChat = new ChatServer();

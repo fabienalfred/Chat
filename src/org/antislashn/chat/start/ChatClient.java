@@ -19,8 +19,11 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+@SuppressWarnings("serial")
 public class ChatClient extends JFrame implements ActionListener, Runnable {
 
+	/***** ATTRIBUTES *****/
+	
 	private String user;
 	private String host;
 	private int port=45123;
@@ -30,6 +33,9 @@ public class ChatClient extends JFrame implements ActionListener, Runnable {
 	
 	private JTextArea listeMessages = new JTextArea(10, 32);
 	private JTextField saisie = new JTextField(32);
+	
+	
+	/***** CONSTRUCTORS *****/
 
 	public ChatClient(String name, String hostName) throws UnknownHostException, IOException {
 		this.user = name;
@@ -55,6 +61,9 @@ public class ChatClient extends JFrame implements ActionListener, Runnable {
 		this.out = new OutputStreamWriter(socket.getOutputStream());
 		new Thread(this).start();
 	}
+	
+	
+	/***** METHODS *****/
 
 	public void actionPerformed(ActionEvent e) {
 		String message = saisie.getText();
@@ -79,7 +88,11 @@ public class ChatClient extends JFrame implements ActionListener, Runnable {
 			}
 		}
 	}
-
+	
+	
+	/***** MAIN *****/
+	
+	@SuppressWarnings("unused")
 	public static void main(String[] args) throws UnknownHostException, IOException {
 		String name = JOptionPane.showInputDialog(null,"Quel est votre nom ?","");
 		String host = "localhost";
